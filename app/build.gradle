@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    signingConfigs {
+        /**
+         * 设置你的keystore相关
+         * demo中只是一个示例，使用时请根据实际情况进行配置
+         */
+        debug {
+//            //keystore中key的别名
+//            keyAlias 'androiddebugkey'
+//            //keystore中key的密码
+//            keyPassword 'android'
+//            //keystore的文件路径，可以使绝对路径也可以是相对路径
+//            storeFile file('../keystore/debug.keystore')
+//            //keystore的密码
+//            storePassword 'android'
+            storeFile file('D:\\task\\documents\\pemt.jks')
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.amap.navi.demo"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/Msc.jar')
+}
